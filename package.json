@@ -1,0 +1,29 @@
+{
+  "name": "tms-fleet-erp",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Transport Management System & Fleet Business ERP — Obsidian Fleet Command",
+  "workspaces": [
+    "apps/api-core",
+    "apps/web-portals"
+  ],
+  "packageManager": "npm@11.13.0",
+  "scripts": {
+    "infra": "node scripts/dev-infra.mjs",
+    "setup:redis": "powershell -ExecutionPolicy Bypass -File scripts/setup-redis.ps1",
+    "seed": "npm run seed -w apps/api-core",
+    "seed:dev": "npm run seed:dev -w apps/api-core",
+    "dev": "turbo run dev --parallel",
+    "dev:api": "npm run dev -w apps/api-core",
+    "dev:web": "npm run dev -w apps/web-portals",
+    "dev:ai": "cd apps/ai-engine && .venv\\Scripts\\python -m uvicorn main:app --port 8000 --reload",
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "smoke": "npm run smoke -w apps/api-core"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "mongodb-memory-server": "^10.1.4"
+  }
+}

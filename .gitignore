@@ -1,0 +1,13 @@
+node_modules/
+dist/
+.data/
+.tools/
+.env
+*.log
+.turbo/
+apps/ai-engine/.venv/
+apps/ai-engine/models/*.joblib
+__pycache__/
+.pytest_cache/
+apps/api-core/uploads/*
+!apps/api-core/uploads/.gitkeep
